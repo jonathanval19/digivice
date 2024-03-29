@@ -18,8 +18,8 @@
 
     <ion-row justify-content-center>
       <ion-col size="12" size-md="6">
-        <ion-button expand="block" routerLink="/login">Iniciar sesión</ion-button>
-        <ion-button expand="block" fill="outline" routerLink="/signup">Registrarse</ion-button>
+        <ion-button expand="block" [routerLink]="['/login']">Iniciar sesión</ion-button>
+        <ion-button expand="block" fill="outline" [routerLink]="['/signup']">Registrarse</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
