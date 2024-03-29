@@ -1,0 +1,7 @@
+{
+  "name": "digivice",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
