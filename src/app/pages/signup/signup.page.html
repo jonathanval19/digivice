@@ -4,20 +4,45 @@
     <p class="subTitle">Registrate para acceder a una cuenta</p>
   </div>
 
-  <form action="">
+  <form [formGroup]="regForm" novalidate>
     <div class="ion-padding">
       <ion-item>
-        <ion-input placeholder="Nombre" class="input"></ion-input>
+        <ion-input formControlName="fullname" placeholder="Nombres" class="input"></ion-input>
         <ion-icon name="person-outline"></ion-icon>
       </ion-item>
+      <div *ngIf="this.regForm?.controls?.['fullname']?.touched && this.regForm.controls?.['fullname']?.invalid">
+        <ion-text *ngIf="errorControl.fullname.errors?.required" color="danger">
+          Nombre requerido
+        </ion-text>
+      </div>
       <ion-item>
-        <ion-input placeholder="Correo electrónico" class="input"></ion-input>
-        <ion-icon name="person-outline"></ion-icon>
+        <ion-input formControlName="email" placeholder="Correo electrónico" class="input"></ion-input>
+        <ion-icon name="mail-outline"></ion-icon>
       </ion-item>
+      <div *ngIf="this.regForm?.controls?.['email']?.touched && this.regForm.controls?.['email']?.invalid">
+        <ion-text *ngIf="errorControl.email.errors?.required" color="danger">
+          Correo electrónico requerido
+        </ion-text>
+        <ion-text *ngIf="errorControl.email.errors?.pattern" color="danger">
+          Correo electrónico no válido
+        </ion-text>
+      </div>
       <ion-item>
-        <ion-input placeholder="Contraseña" class="input"></ion-input>
+        <ion-input formControlName="password" placeholder="Contraseña" class="input"></ion-input>
         <ion-icon name="lock-closed-outline"></ion-icon>
       </ion-item>
+      <div *ngIf="this.regForm?.controls?.['password']?.touched && this.regForm.controls?.['password']?.invalid">
+        <ion-text *ngIf="errorControl.password.errors?.required" color="danger">
+          Contraseña requerida
+        </ion-text>
+        <ion-text *ngIf="errorControl.password.errors?.pattern" color="danger">
+          Debe contener 
+          1 número,
+          1 letra mayúscula,
+          1 letra minúscula, 
+          6 o más caracteres
+        </ion-text>
+      </div>
       <ion-item>
         <ion-input placeholder="Repita su contraseña" class="input"></ion-input>
         <ion-icon name="lock-closed-outline"></ion-icon>
@@ -28,7 +53,7 @@
       </div>
     </div>
     <ion-fab vertical="bottom" horizontal="end" style="margin-bottom:30px">
-      <ion-fab-button [routerLink]="['/home']">
+      <ion-fab-button (click)="signUp()">
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>

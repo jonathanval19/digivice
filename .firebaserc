@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "login-ionic-e8eac": {
+      "hosting": {
+        "app": [
+          "login-ionic-e8eac"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "login-ionic-e8eac"
+  }
+}
