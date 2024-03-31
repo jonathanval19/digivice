@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
+import { CardPage } from './card.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { CardPageRoutingModule } from './card-routing.module';
+
 
 @NgModule({
   imports: [
@@ -13,9 +14,9 @@ import { HomePageRoutingModule } from './home-routing.module';
     FormsModule,
     IonicModule,
     HttpClientModule,
-    HomePageRoutingModule,
+    CardPageRoutingModule
   ],
   providers:[],
-  declarations: [HomePage]
+  declarations: [CardPage]
 })
-export class HomePageModule { }
+export class CardPageModule {}

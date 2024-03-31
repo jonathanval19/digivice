@@ -1,21 +1,25 @@
-ion-content {
-    --background: linear-gradient(to bottom, #f2f2f2, #ffffff);
-  }
-  
-  ion-grid {
-    height: 100%;
-  }
-  
-  img {
-    max-width: 200px;
-    margin: 0 auto;
-    display: block;
-  }
-  
-  ion-text {
-    text-align: center;
-  }
-  
-  ion-button {
-    margin-top: 20px;
-  }
+.background {
+  background-image: url('../../../assets/images/background.jpeg'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  background-color: rgb(82, 171, 223); /* Transparencia del contenido */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  width: 100%;
+  justify-content: center;
+}
+
+ion-button{
+  width: 300px;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto; /* Margen en la imagen */
+}
+

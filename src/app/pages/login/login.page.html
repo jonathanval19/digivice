@@ -1,50 +1,49 @@
 <ion-content [fullscreen]="true">
-  <div class="header">
-    <ion-title class="title">Inicio de Sesión</ion-title>
-    <p class="subTitle">Ingresa para acceder a tu cuenta</p>
-  </div>
+  <ion-row style="height: 100vh; align-items: center; justify-content: center;" class="content">
+    <ion-col size-md="6" size-lg="4" size-xl="3" style="text-align: center;">
+      <form [formGroup]="loginForm" novalidate>
+        <ion-title class="ion-text-center ion-margin-bottom" color="primary"><a [routerLink]="['/landing']">Inicio de
+            Sesión</a></ion-title>
+        <ion-card-subtitle class="ion-text-center ion-margin-bottom" color="secondary">Ingresa para acceder a tu
+          cuenta</ion-card-subtitle>
+        <br>
+        <ion-item lines="full">
+          <ion-input formControlName="email" placeholder="Correo electrónico"></ion-input>
+          <ion-icon slot="start" name="mail-outline"></ion-icon>
+        </ion-item>
+        <div *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)"
+          lines="none">
+          <ion-text color="primary" *ngIf="loginForm.get('email').errors?.required">
+            Correo electrónico requerido
+          </ion-text>
+          <ion-text color="primary" *ngIf="loginForm.get('email').errors?.pattern">
+            Correo electrónico no válido
+          </ion-text>
+        </div>
 
-  <form [formGroup]="loginForm" novalidate>
-    <div class="ion-padding">
-      <ion-item>
-        <ion-input formControlName="email" placeholder="Correo electrónico" class="input"></ion-input>
-        <ion-icon name="mail-outline"></ion-icon>
-      </ion-item>
-      <div *ngIf="this.loginForm?.controls?.['email']?.touched && this.loginForm.controls?.['email']?.invalid">
-        <ion-text *ngIf="errorControl.email.errors?.required" color="danger">
-          Correo electrónico requerido
-        </ion-text>
-        <ion-text *ngIf="errorControl.email.errors?.pattern" color="danger">
-          Correo electrónico no válido
-        </ion-text>
-      </div>
-      <ion-item>
-        <ion-input formControlName="password" placeholder="Contraseña" class="input"></ion-input>
-        <ion-icon name="lock-closed-outline"></ion-icon>
-      </ion-item>
-      <div *ngIf="this.loginForm?.controls?.['password']?.touched && this.loginForm.controls?.['password']?.invalid">
-        <ion-text *ngIf="errorControl.password.errors?.required" color="danger">
-          Contraseña requerida
-        </ion-text>
-        <ion-text *ngIf="errorControl.password.errors?.pattern" color="danger">
-          Debe contener
-          1 número,
-          1 letra mayúscula,
-          1 letra minúscula,
-          6 o más caracteres
-        </ion-text>
-      </div>
-      <div class="forgotpassword">
-        <a [routerLink]="['/reset-password']" style="color:#FFC33F">Olvidaste tu contraseña?</a>
-      </div>
-      <div class="signuplink">
-        <p>¿No tienes una cuenta? <a [routerLink]="['/signup']" style="color:#FFC33F">Regístrate ahora</a></p>
-      </div>
-    </div>
-    <ion-fab vertical="bottom" horizontal="end" style="margin-bottom:30px">
-      <ion-fab-button (click)="login()">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </form>
+        <ion-item lines="full">
+          <ion-input type="password" formControlName="password" placeholder="Contraseña"></ion-input>
+          <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        </ion-item>
+        <div
+          *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)"
+          lines="none">
+          <ion-text color="primary" *ngIf="loginForm.get('password').errors?.required">
+            Contraseña requerida
+          </ion-text>
+        </div>
+
+        <ion-button expand="block" (click)="login()" [disabled]="loginForm.invalid">
+          Iniciar Sesión<ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+
+        <div class="ion-text-center ion-margin-top">
+          <a [routerLink]="['/reset-password']" color="primary">¿Olvidaste tu contraseña?</a>
+        </div>
+        <div class="ion-text-center ion-margin-top">
+          ¿No tienes una cuenta? <a [routerLink]="['/signup']" color="primary">Regístrate ahora</a>
+        </div>
+      </form>
+    </ion-col>
+  </ion-row>
 </ion-content>

@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ digimon?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-card>
+    <ion-card-header *ngIf="digimon?.xAntibody">
+      <ion-card-subtitle style="text-align: center;">X-Antibody</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12" size-md="6" size-lg="6" size-xl="4" *ngFor="let image of digimon?.images">
+          <ion-img [src]="image.href" class="image-main"></ion-img>
+        </ion-col>
+        <ion-row>
+          <ion-col size="12" size-md="12" size-lg="12" size-xl="12" style="justify-content: center;">
+            <ion-item style="text-align: center;">
+              <ion-label position="stacked">Nivel:</ion-label>
+              <ion-chip *ngFor="let level of digimon?.levels" color="primary">{{ level.level }}</ion-chip>
+            </ion-item>
+            <ion-item style="text-align: center;">
+              <ion-label position="stacked">Tipo:</ion-label>
+              <ion-chip *ngFor="let type of digimon?.types" color="secondary">{{ type.type }}</ion-chip>
+            </ion-item>
+            <ion-item style="text-align: center;">
+              <ion-label position="stacked">Atributos:</ion-label>
+              <ion-chip *ngFor="let attribute of digimon?.attributes" color="tertiary">{{ attribute.attribute
+                }}</ion-chip>
+            </ion-item>
+            <ion-list lines="fill" style="text-align: center;">
+              <ion-label>Campos:</ion-label>
+              <ion-item *ngFor="let field of digimon?.fields">
+                <ion-img [src]="field.image" slot="start" class="field-image"></ion-img>
+                <ion-label>{{ field.field }}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

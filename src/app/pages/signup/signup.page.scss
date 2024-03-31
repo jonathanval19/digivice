@@ -1,6 +1,11 @@
-.input {
-    font-size: 300;
-}
+.content {
+    background-color: rgb(82, 171, 223); /* Transparencia del contenido */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    width: 100%;
+  }
+
+
 
 ion-item {
     --background: #F1F1F1;
@@ -8,49 +13,6 @@ ion-item {
     margin-bottom: 16px;
 }
 
-.header {
-    margin-top: 100px;
-    margin-bottom: 80px;
-    text-align: center;
-
-    .subTitle {
-        color: gray;
-        font-size: 0.9rem;
-    }
-
-    title {
-        font-size: 2rem;
-    }
-}
-
-.signuplink {
-    display: flex;
-    margin: auto;
-    flex-direction: row;
-    align-content: center;
-    position: absolute;
-    justify-content: center;
-    left: 0;
-    bottom: 0;
-    width: 80%;
-    right: 0;
-
-    p {
-        font-size: 0.9rem;
-    }
-
-    a {
-        text-decoration: none;
-    }
-}
-
-.forgotpassword {
-    display: flex;
-    justify-content: flex-end;
-
-    a {
-        font-weight: 400;
-        font-size: 0.8rem;
-        text-decoration: none;
-    }
+a {
+    text-decoration: none;
 }

@@ -1,0 +1,82 @@
+/* Estilos generales */
+ion-header {
+  --ion-color-base: var(--ion-color-primary);
+}
+
+ion-toolbar {
+  --ion-color-base: var(--ion-color-primary);
+  --ion-color-contrast: var(--ion-color-light);
+}
+
+ion-card {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-header {
+  padding-bottom: 0;
+}
+
+ion-card-subtitle {
+  font-weight: bold;
+}
+
+ion-card-content {
+  padding-top: 0;
+}
+
+ion-row {
+  justify-content: center;
+}
+
+ion-col {
+  max-width: 90%;
+}
+
+ion-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+ion-item {
+  --inner-padding-top: 0.5rem;
+  --inner-padding-bottom: 0.5rem;
+}
+
+ion-chip {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.field-image {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Media queries para hacer los estilos responsive */
+@media only screen and (max-width: 768px) {
+  ion-card {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  ion-col {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  ion-card {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  ion-col {
+    max-width: 100%;
+  }
+}

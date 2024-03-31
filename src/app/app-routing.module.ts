@@ -27,6 +27,11 @@ const routes: Routes = [
     path: 'reset-password',
     loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
+  {
+    path: 'card',
+    loadChildren: () => import('./pages/card/card.module').then( m => m.CardPageModule)
+  },
+
 
 ];
 
