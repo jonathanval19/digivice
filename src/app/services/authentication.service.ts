@@ -17,7 +17,7 @@ export class AuthenticationService {
   async loginUser(email: string, password: string) {
     try {
       const result = await this.ngFireAuth.signInWithEmailAndPassword(email, password);
-      this.sendEmailVerification();
+      //this.sendEmailVerification();
       return result;
     } catch (error) {
       console.log(error);
