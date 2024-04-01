@@ -11,13 +11,18 @@ export class AuthenticationService {
   constructor(public ngFireAuth: AngularFireAuth) { }
 
   async registerUser(email: string, password: string) {
-    return await this.ngFireAuth.createUserWithEmailAndPassword(email, password);
+    try {
+      const register = await this.ngFireAuth.createUserWithEmailAndPassword(email, password);
+      this.sendEmailVerification();
+      return register;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async loginUser(email: string, password: string) {
     try {
       const result = await this.ngFireAuth.signInWithEmailAndPassword(email, password);
-      //this.sendEmailVerification();
       return result;
     } catch (error) {
       console.log(error);

@@ -38,9 +38,7 @@ export class SignupPage implements OnInit {
         ]],
       password: [
         '',
-        [Validators.required,
-
-        Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}")]
+        [Validators.required]
       ]
     })
   }
@@ -58,7 +56,7 @@ export class SignupPage implements OnInit {
     const querySnapshot = await getDocs(usersCollection);
     const existingUsers = querySnapshot.docs.map((doc) => doc.data());
 
-    const duplicateUser = existingUsers.find((user) => user.email === this.regForm.value.email );
+    const duplicateUser = existingUsers.find((user) => user.email === this.regForm.value.email);
     if (duplicateUser) {
       loading.dismiss();
       console.log('Usuario ya registrado');
@@ -70,6 +68,7 @@ export class SignupPage implements OnInit {
       const user = await this.authService.registerUser(this.regForm.value.email, this.regForm.value.password).catch((error) => {
         console.log(error);
         loading.dismiss();
+        this.showAlert('Verificación necesaria', 'Mensaje de verificación enviado, favor revisa su correo.');
       });
 
       if (user) {
